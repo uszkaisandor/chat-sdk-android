@@ -14,9 +14,6 @@
 
         <service android:name="co.chatsdk.core.notifications.MessagingService" />
 
-        <meta-data android:name="com.google.android.gms.car.application"
-            android:resource="@xml/automotive_app_desc" />
-
     </application>
 
 </manifest>
