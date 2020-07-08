@@ -36,9 +36,8 @@ dependencies {
     api project(':chat-sdk-firebase-adapter')
     api project(':chat-sdk-ui')
 
-    implementation "com.google.android.gms:play-services-auth:$playAuthVersion"
-    implementation "com.facebook.android:facebook-login:$facebookLoginVersion"
-    implementation "com.twitter.sdk.android:twitter:$twitterVersion"
+    implementation "com.google.android.gms:play-services-auth:18.0.0"
+    implementation "com.facebook.android:facebook-login:5.2.0"
 }
 
 

@@ -15,7 +15,6 @@ import io.reactivex.Single;
 public interface SocialLoginHandler {
 
     Completable loginWithFacebook(Activity activity);
-    Completable loginWithTwitter(Activity activity);
     Completable loginWithGoogle(Activity activity);
 
     // This should be called by the activity

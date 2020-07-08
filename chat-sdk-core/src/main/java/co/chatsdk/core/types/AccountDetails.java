@@ -11,7 +11,6 @@ public class AccountDetails {
     public enum Type {
         Username,
         Facebook,
-        Twitter,
         Google,
         Anonymous,
         Register,
@@ -43,12 +42,6 @@ public class AccountDetails {
         a.type = Type.Register;
         a.username = username;
         a.password = password;
-        return a;
-    }
-
-    public static AccountDetails twitter () {
-        AccountDetails a = new AccountDetails();
-        a.type = Type.Twitter;
         return a;
     }
 

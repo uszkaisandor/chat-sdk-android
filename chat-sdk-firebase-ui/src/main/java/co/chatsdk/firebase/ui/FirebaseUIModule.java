@@ -9,7 +9,6 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.GithubAuthProvider;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.google.firebase.auth.TwitterAuthProvider;
 
 import java.util.ArrayList;
 
@@ -56,9 +55,6 @@ public class FirebaseUIModule {
             }
             if (provider.equals(EmailAuthProvider.PROVIDER_ID)) {
                 idps.add(new AuthUI.IdpConfig.EmailBuilder().build());
-            }
-            if (provider.equals(TwitterAuthProvider.PROVIDER_ID)) {
-                idps.add(new AuthUI.IdpConfig.TwitterBuilder().build());
             }
             if (provider.equals(PhoneAuthProvider.PROVIDER_ID)) {
                 idps.add(new AuthUI.IdpConfig.PhoneBuilder().build());

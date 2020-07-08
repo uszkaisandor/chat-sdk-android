@@ -95,7 +95,6 @@ public class FirebaseAuthenticationHandler extends AbstractAuthenticationHandler
                             break;
                         // Should be handled by Social Login Module
                         case Facebook:
-                        case Twitter:
                         default:
                             emitter.onError(ChatError.getError(ChatError.Code.NO_LOGIN_TYPE, "No matching login type was found"));
                             break;

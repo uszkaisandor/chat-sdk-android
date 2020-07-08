@@ -65,7 +65,6 @@ public class AppObj extends MultiDexApplication {
 
 //            config.messagesToLoadPerBatch(10);
 
-            config.twitterLogin("Kqprq5b6bVeEfcMAGoHzUmB3I", "hPd9HCt3PLnifQFrGHJWi6pSZ5jF7kcHKXuoqB8GJpSDAlVcLq");
             config.googleLogin("1088435112418-e3t77t8jl2ucs8efeqs72o696in8soui.apps.googleusercontent.com");
 
             // For the demo version of the client expire rooms after 24 hours

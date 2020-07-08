@@ -19,7 +19,6 @@ public class LinkedAccount extends AbstractEntity {
     @Keep
     public static class Type{
         public static final int FACEBOOK = 0;
-        public static final int TWITTER = 1;
         public static final int PASSWORD = 2;
         public static final int GOOGLE = 3;
     }

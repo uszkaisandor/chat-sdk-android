@@ -130,12 +130,6 @@
         tools:layout_editor_absoluteX="0dp">
 
         <ImageButton
-            android:id="@+id/button_twitter"
-            style="@style/SocialLoginButton"
-            android:background="@drawable/ic_twitter"
-            app:layout_constraintLeft_toLeftOf="parent" />
-
-        <ImageButton
             android:id="@+id/button_facebook"
             style="@style/SocialLoginButton"
             android:background="@drawable/ic_facebook" />

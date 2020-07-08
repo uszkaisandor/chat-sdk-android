@@ -19,16 +19,6 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.auth.TwitterAuthProvider;
-import com.twitter.sdk.android.core.Callback;
-import com.twitter.sdk.android.core.Result;
-import com.twitter.sdk.android.core.Twitter;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
-import com.twitter.sdk.android.core.TwitterConfig;
-import com.twitter.sdk.android.core.TwitterException;
-import com.twitter.sdk.android.core.TwitterSession;
-import com.twitter.sdk.android.core.identity.TwitterLoginButton;
-
 import co.chatsdk.core.handlers.SocialLoginHandler;
 import co.chatsdk.core.session.ChatSDK;
 import co.chatsdk.core.types.AccountDetails;
@@ -52,8 +42,6 @@ public class FirebaseSocialLoginHandler implements SocialLoginHandler {
     private GoogleApiClient googleClient;
     private GoogleSignInCompleteListener googleSignInCompleteListener;
 
-    // Twitter
-    TwitterLoginButton twitterButton;
 
     private static int RC_GOOGLE_SIGN_IN = 200;
 
@@ -64,11 +52,6 @@ public class FirebaseSocialLoginHandler implements SocialLoginHandler {
                     .requestIdToken(ChatSDK.config().googleWebClientKey)
                     .requestEmail()
                     .build();
-        }
-        if(accountTypeEnabled(AccountDetails.Type.Twitter)) {
-            TwitterAuthConfig authConfig = new TwitterAuthConfig(ChatSDK.config().twitterKey, ChatSDK.config().twitterSecret);
-            TwitterConfig config = new TwitterConfig.Builder(context).twitterAuthConfig(authConfig).build();
-            Twitter.initialize(config);
         }
     }
 
@@ -101,27 +84,6 @@ public class FirebaseSocialLoginHandler implements SocialLoginHandler {
             });
 
             button.callOnClick();
-
-        }).flatMapCompletable(authCredential -> signInWithCredential(activity, authCredential));
-    }
-
-    @Override
-    public Completable loginWithTwitter(final Activity activity) {
-        return Single.create((SingleOnSubscribe<AuthCredential>) e -> {
-
-            twitterButton = new TwitterLoginButton(activity);
-            twitterButton.setCallback(new Callback<TwitterSession>() {
-                @Override
-                public void success(Result<TwitterSession> result) {
-                    e.onSuccess(TwitterAuthProvider.getCredential(result.data.getAuthToken().token, result.data.getAuthToken().secret));
-                }
-
-                @Override
-                public void failure(TwitterException exception) {
-                    e.onError(exception);
-                }
-            });
-            twitterButton.callOnClick();
 
         }).flatMapCompletable(authCredential -> signInWithCredential(activity, authCredential));
     }
@@ -163,9 +125,6 @@ public class FirebaseSocialLoginHandler implements SocialLoginHandler {
             }
         }
 
-        if(twitterButton != null) {
-            twitterButton.onActivityResult(requestCode, resultCode, data);
-        }
 
     }
 
@@ -174,8 +133,6 @@ public class FirebaseSocialLoginHandler implements SocialLoginHandler {
         switch (type) {
             case Facebook:
                 return ChatSDK.config().facebookLoginEnabled();
-            case Twitter:
-                return ChatSDK.config().twitterLoginEnabled();
             case Google:
                 return ChatSDK.config().googleLoginEnabled();
             default:

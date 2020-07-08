@@ -13,7 +13,6 @@ public class AccountType {
      * */
     public static final int Password = 1;
     public static final int Facebook = 2;
-    public static final int Twitter = 3;
     public static final int Anonymous = 4;
     public static final int Google = 5;
     public static final int Custom = 6;
