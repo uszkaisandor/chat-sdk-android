@@ -48,7 +48,7 @@ dependencies {
     implementation "org.ocpsoft.prettytime:prettytime:$rootProject.ext.prettyTimeVersion"
     implementation "com.github.mukeshsolanki:country-picker-android:$rootProject.ext.countryPickerVersion"
     implementation "com.theartofdev.edmodo:android-image-cropper:$rootProject.ext.imageCropperVersion"
-    implementation "com.github.chrisbanes:PhotoView:$rootProject.ext.photoViewVersion"
+    implementation "com.github.chrisbanes:PhotoView:2.2.0"
     implementation "com.mikepenz:materialdrawer:$materialDrawerVersion"
     implementation "com.zhihu.android:matisse:$matisseVersion"
     implementation "com.leinardi.android:speed-dial:$speedDial"
